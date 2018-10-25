@@ -1,12 +1,9 @@
-# Example app using Tink API to fetch end users' data
-This is a small example app with the purpose to showcase how a third-party app could fetch data from the Tink API.
-
-The app was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app), so it contains some standard code from there. Other than that, it has been made as simple as possible.
+This project was cloned from https://github.com/tink-ab/tink-connect-example
 
 ## Structure
 
 * **NodeJS server/backend**: can be found in `server.js`
-* **ReactJS client/frontend**: can be found in the `client` folder.
+* **Angular client/frontend**: can be found in the `client` folder.
 
 ## Running the app locally
 
