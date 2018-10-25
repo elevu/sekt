@@ -4,10 +4,10 @@
   "description": "An example app showing how to use the Tink API in a third-party app.",
   "main": "server.js",
   "scripts": {
-    "client": "cd client && npm start",
+    "client": "cd client-app && ng serve --port 3000",
     "server": "node server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "postinstall": "cd client && npm install"
+    "postinstall": "cd client-app && npm install"
   },
   "author": "",
   "license": "ISC",

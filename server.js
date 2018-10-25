@@ -16,13 +16,15 @@ const base = 'https://api.tink.se/api/v1';
 
 // This is the server API, where the client can post a received OAuth code.
 app.post('/code', function (req, res) {
+  console.log('a..post');
+  console.log(req);
   getAccessToken(req.body.code).then(function (response) {
-
+    console.log('fetching sR');
     getData(response.access_token).then(function (response) {
       res.send(JSON.stringify({response: response}));
-    }).catch(err => console.log(err));
+    }).catch(err => console.log('getData' + err));
 
-  }).catch(err => console.log(err));
+  }).catch(err => console.log('getToken' + err));
 });
 
 async function getData(accessToken) {
@@ -44,8 +46,8 @@ async function getData(accessToken) {
 async function getAccessToken(code) {
   const body = {
     code: code,
-    client_id: '6745522a5cb6472587174d0b22ad2905',
-    client_secret: process.env.CLIENT_SECRET, // Your OAuth client secret. Always handle the secret with care.
+    client_id: 'f9291bc8b7724ae3936cfe3221dd2c29',
+    client_secret: process.env.CLIENT_SECRET,
     grant_type: 'authorization_code',
   };
 
