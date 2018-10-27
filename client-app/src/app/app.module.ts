@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MatButtonModule,
+    MatCheckboxModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(
