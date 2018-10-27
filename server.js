@@ -117,7 +117,7 @@ async function getTransactionData(token) {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + token,
     },
-    body: JSON.stringify({limit: 5}),
+    body: JSON.stringify({limit: 500}),
   });
 
   if (response.status !== 200) {
