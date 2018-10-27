@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {TransactionsService} from "../transactions.service";
 
 @Component({
   selector: 'app-callback',
@@ -8,22 +8,17 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ['./callback.component.scss']
 })
 export class CallbackComponent implements OnInit {
+  localRouteUrl: string;
 
-  constructor(private router: Router,
-              private httpService: HttpClient,
+  constructor(private transactionsService: TransactionsService,
+              private router: Router,
   ) {}
 
   ngOnInit() {
   }
 
-body = JSON.stringify({
-    code: this.router.url.substring(15),
-});
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-
-  getAuth(){
-    console.log('..now posting');
-    console.log(this.body);
-    this.httpService.post<any>('http://localhost:8080/code', this.body, this.httpOptions).subscribe(response => console.log(response));
+  callAuthAppRouter() {
+    this.transactionsService.getAuth(this.router.url.substring(15));
   }
+
 }
