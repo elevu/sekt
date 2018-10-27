@@ -24,6 +24,6 @@ body = JSON.stringify({
   getAuth(){
     console.log('..now posting');
     console.log(this.body);
-    this.httpService.post<any>('http://localhost:8080/code', this.body, this.httpOptions).subscribe(response => console.log(response));
+    this.httpService.post<any>('http://localhost:8080/code', this.body).subscribe(response => console.log(response));
   }
 }
