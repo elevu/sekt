@@ -6,6 +6,11 @@ const fetch = require('node-fetch');
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 // Needed to make client-side routing work in production.
 app.get('/*', function (req, res) {
@@ -18,7 +23,8 @@ const base = 'https://api.tink.se/api/v1';
 app.post('/code', function (req, res) {
   console.log('a..post');
   console.log(req);
-  getAccessToken(req.body.code).then(function (response) {
+
+    getAccessToken(req.body.code).then(function (response) {
     console.log('fetching sR');
     getData(response.access_token).then(function (response) {
       res.send(JSON.stringify({response: response}));
