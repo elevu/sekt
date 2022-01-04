@@ -17,6 +17,6 @@ export class AppComponent {
 
 
 navigateTo(){
-  window.location.href = 'https://oauth.tink.se/0.4/authorize/?client_id=f9291bc8b7724ae3936cfe3221dd2c29&redirect_uri=http://localhost:3000/callback&scope=accounts:read,transactions:read,investments:read,user:read&grant_type=authorization_code&market=SE&locale=en_US';
+  window.location.href = 'https://oauth.tink.se/0.4/authorize/?client_id=f9291bc8b7724ae3936cfe3221dd2c29&redirect_uri=http://localhost:3000/callback&scope=transactions:read&grant_type=authorization_code&market=SE&locale=en_US';
 }
 }
